@@ -1,16 +1,16 @@
 package com.jcastro.essalud;
 
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
 
     Button btnIngresar;
     EditText txtUsuario, txtPassword;
@@ -25,12 +25,11 @@ public class MainActivity extends AppCompatActivity {
         txtPassword = findViewById(R.id.txtPassword);
 
 
-
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (txtUsuario.getText().toString().equals("") || txtPassword.getText().toString().equals("")){
+                if (txtUsuario.getText().toString().equals("") || txtPassword.getText().toString().equals("")) {
 
                     Toast toast = Toast.makeText(MainActivity.this, "Usted debe llenar todos los Campos", Toast.LENGTH_LONG);
                     toast.show();
@@ -42,18 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
                     AlertDialog dialog = builder.create();
                     dialog.show();
-
-
-                }else{
-
-                    Intent intent = new Intent(MainActivity.this, BasedeDatos.class);
-                    startActivity(intent);
-
-
-
                 }
-
             }
         });
+    }
 }
 
